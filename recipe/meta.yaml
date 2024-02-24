@@ -1,5 +1,5 @@
 {% set name = "neuralprophet" %}
-{% set version = "0.6.2" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/neuralprophet-{{ version }}.tar.gz
-  sha256: b6f0ecafa8c332c961f071a8664e1f6ba481822012b9cbd9352033cde9b90d4e
+  sha256: 7cbab4ac604378c36c3acd5721c4d621447b653aabf89cbca1ac37c17eb4832a
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
-  
+
 requirements:
   host:
     - python >=3.7,<3.11
