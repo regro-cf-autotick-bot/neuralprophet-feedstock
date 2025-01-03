@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/neuralprophet-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/neuralprophet-{{ version }}.tar.gz
   sha256: b6f0ecafa8c332c961f071a8664e1f6ba481822012b9cbd9352033cde9b90d4e
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   
 requirements:
   host:
-    - python >=3.7,<3.11
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.7.1,<3.11
+    - python >={{ python_min }},<3.11
     - captum >=0.6.0,<0.7.0
     - holidays >=0.21.0,<0.22.0
     - matplotlib-base >=3.5.3,<4.0.0
@@ -42,6 +42,7 @@ test:
     # - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ourownstory/neural_prophet
